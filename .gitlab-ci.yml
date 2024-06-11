@@ -14,4 +14,3 @@ pages:
       when: on_success
   tags:
     - shared-shell-1
-
