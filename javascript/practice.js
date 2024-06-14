@@ -591,3 +591,40 @@ console.log('\nArray Methods Demonstration')
     console.log(someUsers); // Output: [{name: "Janet"}, {name: "Jim"}]
 
 }
+
+console.log('\nObject Methods')
+{
+    const target = { a: 1, b: 2 };
+    const source = { b: 4, c: 5 };
+    const returnedTarget = Object.assign(target, source);
+
+    console.log(returnedTarget); // Output: { a: 1, b: 4, c: 5 }
+    console.log(target); // Output: { a: 1, b: 4, c: 5 }
+
+    const person = {
+        isHuman: false,
+        printIntroduction: function() {
+            console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+        }
+    };
+    
+    const me = Object.create(person);
+    me.name = 'Matthew';
+    me.isHuman = true;
+    
+    me.printIntroduction(); // Output: "My name is Matthew. Am I human? true"
+    const me2 = Object.create(person);
+    me2.name = "Ajay";
+    me2.printIntroduction(); // Output: "My name is Ajay. Am I human? false"
+      
+    var person1 = {
+        name: 'first',
+        lastname: 'last',
+        address:{
+            country: 'nepal',
+            district: 'bhaktapur',
+            vdc: 'suryabinayak'
+        }
+    }
+    console.log(Object.entries(person1))
+}
