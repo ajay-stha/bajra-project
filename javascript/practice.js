@@ -594,6 +594,7 @@ console.log('\nArray Methods Demonstration')
 
 console.log('\nObject Methods')
 {
+    //Assign
     const target = { a: 1, b: 2 };
     const source = { b: 4, c: 5 };
     const returnedTarget = Object.assign(target, source);
@@ -608,6 +609,7 @@ console.log('\nObject Methods')
         }
     };
     
+    //Create
     const me = Object.create(person);
     me.name = 'Matthew';
     me.isHuman = true;
@@ -617,6 +619,7 @@ console.log('\nObject Methods')
     me2.name = "Ajay";
     me2.printIntroduction(); // Output: "My name is Ajay. Am I human? false"
       
+    //Entries
     var person1 = {
         name: 'first',
         lastname: 'last',
@@ -627,4 +630,38 @@ console.log('\nObject Methods')
         }
     }
     console.log(Object.entries(person1))
+
+    //From Entries
+    const myObj = Object.fromEntries(Object.entries(person1));
+    console.log(myObj);
+
+    const obj = { prop: 42 };
+    Object.freeze(obj);
+
+    //Freeze
+    obj.prop = 33; // This will have no effect
+    console.log(obj.prop); // Output: 42
+
+    //hasOwn
+    const obj1 = { prop: 42,name: 'text' };
+    console.log(Object.hasOwn(obj1, 'prop')); // Output: true
+    console.log(Object.hasOwn(obj1, 'toString')); // Output: false
+    console.log(Object.hasOwn(obj1, 'name')); // Output: true
+
+    //has
+    console.log(obj1.hasOwnProperty('toString')); // Output: false
+    console.log(obj1.hasOwnProperty('hasOwnProperty')); // Output: false
+
+    //defineProperty
+    {
+        const obj = {};
+        Object.defineProperty(obj, 'property', {
+            value: 42,
+            writable: false
+        });
+        obj.property = 77; // This will have no effect
+        console.log(obj.property); // Output: 42
+    }
+    
+
 }
